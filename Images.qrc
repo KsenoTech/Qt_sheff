@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/Images">
+        <file>Images/client.png</file>
+        <file>Images/execu.png</file>
+        <file>Images/fon.png</file>
+        <file>Images/Own_Logo.png</file>
+    </qresource>
+    <qresource prefix="/Icons">
+        <file>Icons/ExitIcon.png</file>
+        <file>Icons/HistoryIcon.png</file>
+        <file>Icons/InProgresIcon.png</file>
+        <file>Icons/logo.ico</file>
+        <file>Icons/logo.png</file>
+        <file>Icons/MenuIcon.png</file>
+        <file>Icons/OrderIcon.png</file>
+        <file>Icons/ProfileIcon.png</file>
+    </qresource>
+</RCC>
