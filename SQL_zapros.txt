@@ -1,0 +1,37 @@
+CREATE DATABASE QtCamp;
+GO
+
+USE QtCamp;
+GO
+
+CREATE TABLE [dbo].[Requests](
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [RequesterId] [int] NULL,
+    [RoomNumber] [int] NULL,
+    [Description] [nvarchar](max) NOT NULL,
+    [Photo] [image] NULL,
+    [Status] [nvarchar](max) NOT NULL,
+ CONSTRAINT [PK_Requests] PRIMARY KEY CLUSTERED 
+(
+    [Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY];
+
+CREATE TABLE [dbo].[Users](
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [UserPhoto] [image] NULL,
+    [UserFIO] [nvarchar](max) NOT NULL,
+    [RoomNumber] [int] NOT NULL,
+    [Rating] [real] NULL,
+    [Login] [nvarchar](max) NOT NULL,
+    [Password] [nvarchar](max) NOT NULL,
+ CONSTRAINT [PK_Users] PRIMARY KEY CLUSTERED 
+(
+    [Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY];
+
+ALTER TABLE [dbo].[Requests]  WITH CHECK ADD  CONSTRAINT [FK_Requests_Users] FOREIGN KEY([RequesterId])
+REFERENCES [dbo].[Users] ([Id]);
+
+ALTER TABLE [dbo].[Requests] CHECK CONSTRAINT [FK_Requests_Users];
